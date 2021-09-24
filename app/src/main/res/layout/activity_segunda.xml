@@ -9,13 +9,16 @@
 
     <TextView
         android:id="@+id/tvnumeros"
-        android:layout_width="408dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="382dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
         android:background="#8DA3F3A6"
         android:textColor="#050505"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
