@@ -10,9 +10,9 @@ import android.widget.TextView;
 public class segunda extends AppCompatActivity {
 
     private TextView numeros;
-    private Float n1;
-    private Float n2;
-    private Integer opc;
+    private Float n1=null;
+    private Float n2=null;
+    private Integer opc=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +23,9 @@ public class segunda extends AppCompatActivity {
 
     public void btAC(View view){
         numeros.setText("");
-        n1 = 0f;
-        n2 = 0f;
+        n1=null;
+        n2=null;
+        opc=0;
     }
 
     public void btMais(View view){
@@ -52,24 +53,37 @@ public class segunda extends AppCompatActivity {
     }
 
     public void btIgual(View view){
-        n2=Float.parseFloat(numeros.getText().toString());
+        if((n1==null) && (n2==null)) {
+            numeros.setText("");
+            //Dados.salvar("null");
+        }
+        else {
+            if (n2==null){
+                n2 = Float.parseFloat(numeros.getText().toString());
+            }
+        }
         switch (opc){
             case 1:
                 numeros.setText((n1+n2)+"");
                 Dados.salvar(n1+"+"+n2+"="+(n1+n2));
+                n1=n1+n2;
                 break;
             case 2:
                 numeros.setText((n1-n2)+"");
                 Dados.salvar(n1+"-"+n2+"="+(n1-n2));
+                n1=n1-n2;
                 break;
             case 3:
                 numeros.setText((n1/n2)+"");
                 Dados.salvar(n1+"/"+n2+"="+(n1/n2));
+                n1=n1/n2;
                 break;
             case 4:
                 numeros.setText((n1*n2)+"");
                 Dados.salvar(n1+"x"+n2+"="+(n1*n2));
+                n1=n1*n2;
                 break;
+            default: break;
         }
     }
 
